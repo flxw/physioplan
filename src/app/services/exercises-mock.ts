@@ -30,7 +30,7 @@ export const EXERCISES:Exercise[] = [{
     postconcentrichold: 0
   },
   break: 45,
-  video: 'außenrotation_schulter_720p.mp4',
+  video: 'aussenrotation_schulter_720p.mp4',
   description: 'hüftbreiter Stand; Ellenbogen im 90° Winkel und eng am Körper; Schulterblatt tief und nach hinten; Rotation erfolgt über das Schultergelenk'
 },{
   etype: 'hold',
