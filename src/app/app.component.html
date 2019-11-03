@@ -12,7 +12,7 @@
     </button>
   </mat-action-list>
 
-  <div *ngIf="selectedExercise != null; then thenBlock else elseBlock"></div>
+  <div *ngIf="selectedExercise != null; then thenBlock"></div>
   <ng-template #thenBlock><plan-detail fxFlex="70%" [exercise]="selectedExercise"></plan-detail></ng-template>
   <div fxFlex="5%"></div>
 </div>

@@ -8,7 +8,7 @@ import { EXERCISES } from './exercises-mock';
 export class ExerciseService {
   exercises = EXERCISES;
 
-  getExercises(): Exercise[] {
+  getExercises(): Object[] {
     return this.exercises;
   }
 }
