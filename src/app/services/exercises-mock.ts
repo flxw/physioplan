@@ -2,7 +2,7 @@ import { Exercise } from '../exercise';
 import { HoldExercise } from '../holdexercise';
 import { CadencedExercise } from '../cadencedexercise';
 
-const cadencedExercises: CadencedExercise[] = [{
+export const EXERCISES:Exercise[] = [{
   etype: 'cadenced',
   name: 'Paddeln',
   sets: 3,
@@ -32,9 +32,7 @@ const cadencedExercises: CadencedExercise[] = [{
   break: 45,
   video: 'außenrotation_schulter_720p.mp4',
   description: 'hüftbreiter Stand; Ellenbogen im 90° Winkel und eng am Körper; Schulterblatt tief und nach hinten; Rotation erfolgt über das Schultergelenk'
-}];
-
-const holdExercises: HoldExercise[] = [{
+},{
   etype: 'hold',
   name: 'Banded distraction Pectoralis',
   sets: 2,
@@ -112,6 +110,3 @@ const holdExercises: HoldExercise[] = [{
   video: 'single leg glute bridges',
   description: 'Rückenlage, Füße auf dem Boden aufgestellt und beine angewinkelt, rechtes Knie zur Brust anziehen, Druck über anderes Bein ausüben und Becken nach oben schieben, Spannung halten'
 }*/
-
-export const EXERCISES: Exercise[] = [...holdExercises, ...cadencedExercises];
-
