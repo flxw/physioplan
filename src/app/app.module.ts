@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlanDetailComponent } from './plan-detail/plan-detail.component';
+import { SemicolonlistPipe } from './semicolonlist.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlanDetailComponent
+    PlanDetailComponent,
+    SemicolonlistPipe
   ],
   imports: [
     BrowserModule,

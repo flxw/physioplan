@@ -1,7 +1,7 @@
 <!-- DETAIL VIEW -->
 <div fxLayout="column">
   <div fxLayoutAlign="center center">
-    <video autoplay loop src="/assets/exercises/plank/illustration.mp4" type="video/mp4"></video>
+    <video autoplay loop src="/assets/exercises/{{exercise.video}}" type="video/mp4"></video>
   </div>
 
   <div fxLayout="row" fxFlexOffset="10px">
@@ -11,13 +11,25 @@
   <div fxLayout="row">
     <div fxFlexOffset="10%" fxFlex="30%">
       <p>Sätze: {{ exercise.sets }}</p>
-      <p>Belastung: {{ exercise.duration }}s</p>
       <p>Pause: {{ exercise.break }}s</p>
-      <p *ngIf="exercise.cadence != null">Kadenz: {{ exercise.cadence}}</p>
+      
+      <div *ngIf="exercise.etype == 'hold'">
+        <p>Haltedauer: {{ exercise.hold }}s</p>
+      </div>
+      <div *ngIf="exercise.etype == 'cadenced'">
+        <p>Wiederholungen: {{ exercise.reps }}</p>
+        <p>Kadenz:</p>
+        <ul>
+          <li>Exzentrische Bewegung: {{ exercise.cadence.excentric }}s</li>
+          <li>Exzentrisch Halten: {{ exercise.cadence.postexcentrichold }}s</li>
+          <li>Konzentrische Bewegung: {{ exercise.cadence.concentric }}s</li>
+          <li>Konzentrisch Halten: {{ exercise.cadence.postconcentrichold }}s</li>
+        </ul>
+      </div>
     </div>
 
     <div fxFlex="70%">
-      <p>{{ exercise.description }}</p>
+      <p [innerHTML]="exercise.description | semicolonlist"></p>
     </div>
   </div>
 </div>
