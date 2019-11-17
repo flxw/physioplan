@@ -6,15 +6,14 @@
   <mat-action-list fxFlexOffset="5%" fxFlex="20%">
     <button mat-list-item
       *ngFor="let e of exercises"
-      [class.selected]="e === selectedExercise"
-      (click)="onSelect(e)">
+      [class.selected]="e.id == selectedId"
+      (click)="showExerciseDetails(e.id)">
       {{e.name}}
     </button>
   </mat-action-list>
 
-  <div *ngIf="selectedExercise != null; then thenBlock"></div>
-  <ng-template #thenBlock><plan-detail fxFlex="70%" [exercise]="selectedExercise"></plan-detail></ng-template>
+  <div fxFlex>
+    <router-outlet></router-outlet>
+  </div>
   <div fxFlex="5%"></div>
 </div>
-
-<router-outlet></router-outlet>

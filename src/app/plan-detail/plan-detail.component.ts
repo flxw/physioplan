@@ -1,5 +1,7 @@
+import { ExerciseService } from './../services/exercise.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Exercise } from '../exercise';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'plan-detail',
@@ -8,11 +10,17 @@ import { Exercise } from '../exercise';
 })
 
 export class PlanDetailComponent implements OnInit {
-  @Input() exercise: Exercise;
+  private sub: any;
+  private id = 0;
+  private exercise: Exercise;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private exerciseService: ExerciseService) {}
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id']; // (+) converts string 'id' to a number
+      this.exercise = this.exerciseService.getExerciseById(this.id);
+   });
   }
-
 }

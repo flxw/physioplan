@@ -1,6 +1,7 @@
 import {Cadence} from './cadence';
 
 export class Exercise {
+  id: number;
   etype: string;
   name: string;
   sets: number;
