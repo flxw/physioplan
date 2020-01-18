@@ -1,19 +1,19 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <span>{{ title }}</span>
 </mat-toolbar>
 
-<div class="container">
-  <mat-action-list fxFlexOffset="5%" fxFlex="20%">
-    <button mat-list-item
-      *ngFor="let e of exercises"
-      [class.selected]="e.id == selectedId"
-      (click)="showExerciseDetails(e.id)">
-      {{e.name}}
-    </button>
-  </mat-action-list>
-
-  <div fxFlex>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened [fixedInViewport]="true" fixedTopGap="64">
+    <mat-action-list>
+      <button mat-list-item
+        *ngFor="let e of exercises"
+        [class.selected]="e.id == selectedId"
+        (click)="showExerciseDetails(e.id)">
+        {{e.name}}
+      </button>
+    </mat-action-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
-  </div>
-  <div fxFlex="5%"></div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PlanDetailComponent implements OnInit {
   private sub: any;
   private id = 0;
-  private exercise: Exercise;
+  public exercise: Exercise;
 
   constructor(private route: ActivatedRoute,
               private exerciseService: ExerciseService) {}
