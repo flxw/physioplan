@@ -10,7 +10,7 @@ import { ExerciseService } from '../services/exercise.service';
 
 export class PlanMasterComponent implements OnInit {
   private sub: any;
-  private area = "";
+  private selectedId: number = undefined;
   private exercises = [];
 
   constructor(private route: ActivatedRoute,
@@ -18,8 +18,12 @@ export class PlanMasterComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.area = params['area']; // (+) converts string 'id' to a number
-      this.exercises = this.exerciseService.getExercisesByCategory(this.area);
+      let area = params['area'];
+      this.exercises = this.exerciseService.getExercisesByCategory(area);
    });
+  }
+
+  setSelectedExercise(id: number): void {
+    this.selectedId = id;
   }
 }

@@ -1,4 +1,4 @@
-import { ExerciseService } from './../services/exercise.service';
+import { ExerciseService } from '../services/exercise.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Exercise } from '../exercise';
 import { ActivatedRoute } from '@angular/router';

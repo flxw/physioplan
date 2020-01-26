@@ -4,13 +4,13 @@
         <button mat-list-item
           *ngFor="let e of exercises"
           [class.selected]="e.id == selectedId"
+          (click)="setSelectedExercise(e.id)"
           [routerLink]="e.id">
           {{e.name}}
         </button>
       </mat-action-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <!--<router-outlet></router-outlet>-->
-      PENIS
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

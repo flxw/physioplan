@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ExerciseService } from './services/exercise.service';
 import { Router } from '@angular/router';
 
 
@@ -9,21 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.styl']
 })
 export class AppComponent {
-  title = 'Physioplan v0.2';
+  title = 'MoveSmooth';
   exercises = [];
-  selectedId = 0
+  selectedId = 0;
 
-  constructor(private exerciseService: ExerciseService,
-              private router: Router) {
+  constructor(private router: Router) {
                 this.router = router;
-  }
-
-  ngOnInit() {
-    this.exercises = this.exerciseService.getExercises();
-  }
-
-  showExerciseDetails(id): void {
-    this.selectedId = id;
-    this.router.navigate(["/exercise", id]);
   }
 }
