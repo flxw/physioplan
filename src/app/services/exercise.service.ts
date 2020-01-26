@@ -10,7 +10,7 @@ export class ExerciseService {
   exerciseMapById: Map<number, Exercise>;
 
   constructor() {
-    this.exerciseMapById = new Map(this.exercises.map( (e) => [e.id, e]));
+    this.exerciseMapById = new Map(this.exercises.map( (e) => [e.id, e] ));
   }
 
   getExercises(): Exercise[] {
@@ -19,5 +19,9 @@ export class ExerciseService {
 
   getExerciseById(id): Exercise {
     return this.exerciseMapById.get(id);
+  }
+
+  getExercisesByCategory(c): Exercise[] {
+    return this.exercises.filter((e) => e.categories.includes(c));
   }
 }

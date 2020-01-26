@@ -1,1 +1,16 @@
-<p>plan-master works!</p>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened [fixedInViewport]="true" fixedTopGap="64">
+      <mat-action-list>
+        <button mat-list-item
+          *ngFor="let e of exercises"
+          [class.selected]="e.id == selectedId"
+          [routerLink]="e.id">
+          {{e.name}}
+        </button>
+      </mat-action-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!--<router-outlet></router-outlet>-->
+      PENIS
+    </mat-sidenav-content>
+  </mat-sidenav-container>
