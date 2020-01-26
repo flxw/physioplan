@@ -8,7 +8,7 @@ export class Exercise {
   break: number;
   video: string;
   description: string;
-  categories: list;
+  categories: string[];
 
   // for cadenced type of exercise
   reps?: number;

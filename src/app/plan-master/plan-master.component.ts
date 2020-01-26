@@ -10,8 +10,8 @@ import { ExerciseService } from '../services/exercise.service';
 
 export class PlanMasterComponent implements OnInit {
   private sub: any;
-  private selectedId: number = undefined;
-  private exercises = [];
+  public selectedId: number = undefined;
+  public exercises = [];
 
   constructor(private route: ActivatedRoute,
               private exerciseService: ExerciseService) {}
