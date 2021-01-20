@@ -18,6 +18,9 @@ jobs:
 
           # Generate commit log for the new release
           COMMITS_SINCE_LAST_TAG="$(git log --no-merges $(git describe --tags --abbrev=0)..HEAD --pretty=format:'%h %s')"
+          COMMITS_SINCE_LAST_TAG="${COMMITS_SINCE_LAST_TAG//$'%'/%25}"
+          COMMITS_SINCE_LAST_TAG="${COMMITS_SINCE_LAST_TAG//$'\n'/%0A}"
+          COMMITS_SINCE_LAST_TAG="${COMMITS_SINCE_LAST_TAG//$'\r'/%0D}"
         
           echo $COMMITS_SINCE_LAST_TAG
 
