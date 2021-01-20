@@ -27,7 +27,7 @@ jobs:
           echo 'NEW_COMMITS<<EOF' >> $GITHUB_ENV
           echo "$COMMITS_SINCE_LAST_TAG" >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
-          echo RELEASE_VERSION=$RANDOM >> $GITHUB_ENV
+          echo RELEASE_VERSION=$(date) >> $GITHUB_ENV
 
       - name: Create release
         id: release-step
@@ -35,8 +35,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.RELEASE_VERSION }}
-          release_name: v${{ env.RELEASE_VERSION }}
+          tag_name: ${{ env.RELEASE_VERSION }}
+          release_name: ${{ env.RELEASE_VERSION }}
           body: |
             Commits made in this release
             ${{ env.NEW_COMMITS }}
