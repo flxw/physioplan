@@ -1,5 +1,7 @@
 name: Maven Publish Release
 
+on: push
+
 jobs:
   publish-release:
     runs-on: ubuntu-latest
