@@ -21,7 +21,9 @@ jobs:
 
           # Generate commit log for the new release
           COMMITS_SINCE_LAST_TAG="$(git log --no-merges $(git describe --tags --abbrev=0)..HEAD --pretty=format:'%h %s')"
+        
           echo $COMMITS_SINCE_LAST_TAG
+          
           #echo 'NEW_COMMITS<<EOF' >> $GITHUB_ENV
           #echo $COMMITS_SINCE_LAST_TAG >> $GITHUB_ENV
           #echo 'EOF' >> $GITHUB_ENV'
