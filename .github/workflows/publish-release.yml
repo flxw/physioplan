@@ -21,7 +21,7 @@ jobs:
         
           echo $COMMITS_SINCE_LAST_TAG
 
-          echo NEW_COMMITS<<EOF >> $GITHUB_ENV
+          echo "NEW_COMMITS<<EOF" >> $GITHUB_ENV
           echo $COMMITS_SINCE_LAST_TAG >> $GITHUB_ENV
           echo EO' >> $GITHUB_ENV'
           echo RELEASE_VERSION=$RANDOM >> $GITHUB_ENV
