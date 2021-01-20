@@ -1,0 +1,40 @@
+name: Maven Publish Release
+
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          fetch-depth: 0 # get full history to be able to do merges
+
+      - name: Configure git
+        run: |
+          git fetch --all --tags
+
+          git checkout develop
+          git pull
+
+          # Generate commit log for the new release
+          COMMITS_SINCE_LAST_TAG="$(git log --no-merges $(git describe --tags --abbrev=0)..HEAD --pretty=format:'%h %s')"
+          COMMITS_SINCE_LAST_TAG="${COMMITS_SINCE_LAST_TAG//'%'/'%25'}"
+          echo 'NEW_COMMITS<<EOF' >> $GITHUB_ENV
+          echo $COMMITS_SINCE_LAST_TAG >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV'
+          echo RELEASE_VERSION=$RANDOM >> $GITHUB_ENV
+
+      - name: Create release
+        id: release-step
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.RELEASE_VERSION }}
+          release_name: v${{ env.RELEASE_VERSION }}
+          body: |
+            Commits made in this release
+            ${{ env.NEW_COMMITS }}
+          draft: false
+          prerelease: false
